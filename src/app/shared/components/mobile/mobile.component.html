@@ -1,0 +1,76 @@
+<!-- <div class="row">
+    <div class="col-md-5 ">
+        <img [src]="mobile.image || 'No Image'" class="img-fluid">
+    </div>
+
+    <div class="col-md-5">
+        <ul class="list-group">
+            <li class="list-group-item">
+                {{mobile.features}}
+            </li>
+        </ul>
+    </div>
+    <div class="col-md-2">
+
+    </div>
+</div> -->
+
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="card mb-4">
+                <div [ngClass]="{
+                   noProd : !mobile.isAvailable
+                }" class="card-body">
+
+                    <div class="row align-items-center">
+
+                        <div class="img col-md-3 text-center mb-3">
+                            <img [src]="mobile.image || 'https://placehold.co/600x600'" class="img-fluid"
+                                alt="mobile image" />
+                        </div>
+
+                        <div class="col-md-7">
+                            <h3>BRAND :- {{ mobile.brand }}
+
+                                <h4 class="badge" [ngClass]="{
+                  'bg-success': mobile.rating >= 3,
+                  'bg-warning': mobile.rating >= 2 && mobile.rating < 3,
+                  'bg-danger': mobile.rating < 2
+                }">
+                                    {{ mobile.rating }}
+                                </h4>
+                            </h3>
+
+                            <h4 class="alert alert-success font-weight-bold">features</h4>
+                            <ul class="list-group">
+                                <li class="list-group-item" *ngFor="let feature of mobile.features">
+                                    {{feature}}
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="col-md-2 text-end">
+                            <h3>₹ {{ (mobile.price-mobile.price*.15)|currency:'INR'}}</h3>
+                            <small>
+                                <del>
+                                    ({{mobile.price|currency:'INR'}})
+                                </del>
+                            </small>
+                        </div>
+
+                    </div>
+
+                    <div class="mt-5 d-flex justify-content-end">
+                        <button class="btn mr-5 btn-warning">Add To Cart</button>
+                        <button class="btn mr-5 btn-primary">Buy Now</button>
+                    </div>
+                </div>
+                <strong class="text-danger noAvailable" *ngIf="!mobile.isAvailable">Product is not
+                    Available</strong>
+            </div>
+        </div>
+    </div>
+</div>

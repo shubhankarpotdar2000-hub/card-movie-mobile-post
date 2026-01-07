@@ -1,0 +1,31 @@
+
+    <div class="card">
+        <figure class="movieCard">
+
+            <img [src]="'https://image.tmdb.org/t/p/w500/'+( movie.backdrop_path   || movie.poster_path)"
+                [alt]="movie.title || movie.original_title"
+                 [title]="movie.title || movie.original_title">
+
+
+            <figcaption>
+                <div class="titleInfo">
+                    <div class="row">
+                        <div class="col-10">
+                            <h2>{{movie.title || movie.original_title}}</h2>
+                        </div>
+                        <div class="col-2">
+                            <h4><span class="badge rounded-pill  {{movie.vote_average}}">
+                                   {{ movie.vote_average }}</span></h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="overview">
+                    <h5>{{movie.title}}</h5>
+                    <p>
+                        {{movie.overview}}
+                    </p>
+                </div>
+            </figcaption>
+        </figure>
+    </div>
